@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+</head>
+<body>
+<form id="formElem">
+    <input type="text" name="name" value="John">
+    <input type="text" name="surname" value="Smith">
+    <input type="submit">
+</form>
+
+<script>
+  const formElement = document.getElementById('formElem'); // извлекаем элемент формы
+  formElement.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(formElement); // создаём объект FormData, передаём в него элемент формы
+    // теперь можно извлечь данные
+    const name = formData.get('name'); // 'John'
+    const surname = formData.get('surname'); // 'Smith'
+     formData.append('age', '21'); // 'Smith'
+    const age = formData.get('age'); // 'Smith'
+
+    alert(name)
+    alert(surname)
+    alert(age)
+  });
+</script>
+</body>
+</html>

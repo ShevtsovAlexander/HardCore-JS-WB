@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Table</title>
+    <script type="module" src="24.js"></script>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #f1f5f8;
+        font-family: "Open Sans", sans-serif;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .posts {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+    }
+
+    .pagination__list {
+        display: flex;
+        list-style-type: none;
+    }
+
+    .pagination__item {
+        padding: 3px;
+        margin: 5px;
+        cursor: pointer;
+    }
+
+    .pagination__item--active {
+        font-weight: 800;
+        color: gold;
+    }
+
+    thead {
+        text-align: left;
+    }
+
+    table {
+        border: 3px solid black;
+    }
+    td {
+        padding: 5px;
+        border: 2px solid black;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="posts">
+        <table>
+            <thead>
+            <tr>
+                <th class="fname" >fname</th><th class="lname">lname</th><th class="tel">tel</th><th class="address">address</th><th class="city">city</th><th class="state">state</th><th class="zip">zip</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            <template id="table_template">
+                <tr class="post">
+                    <td id="fname"></td><td id="lname"></td><td id="tel"></td><td id="address"></td><td id="city"></td><td id="state"></td><td id="zip"></td>
+                </tr>
+            </template>
+            </tbody>
+        </table>
+    </div>
+    <div class="pagination"></div>
+</div>
+</body>
+</html>
+

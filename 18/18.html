@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hardcore Js</title>
+</head>
+<body>
+
+<div>
+    localStorage лимит в браузере -
+    <span id="size">...</span> KBs.
+</div>
+<script>
+  //этот скрипт предназначен для определения размера localStorage
+  function func1(num)
+  {
+    return new Array((num * 1024) + 1).join('a')
+  }
+
+  // Определяем размер localStorage, если он не установлен
+  if (!localStorage.getItem('size')) {
+    let i = 0;
+    try {
+      // Тест до 10 МБ
+      for (i = 0; i <= 10000; i += 250) {
+        localStorage.setItem('test', func1(i));
+      }
+    } catch (e) {
+      let a = i ? i - 250 : 0
+      localStorage.removeItem('test');
+      localStorage.setItem('size', a);
+    }
+  }
+
+  // когда окно загружено, эта функция
+  // вызывается и вычисляется размер localStorage
+  window.onload = function calculate(){
+    const el = document.getElementById('size');
+    el.innerHTML = localStorage.getItem('size');
+    console.log( localStorage.getItem('size'))
+  }
+
+</script>
+</body>
+</html>

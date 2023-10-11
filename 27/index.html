@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Circle</title>
+</head>
+<style>
+    .message-ball {
+        font-size: 20px;
+        line-height: 200px;
+        text-align: center;
+    }
+    .circle {
+        transition-property: width, height;
+        transition-duration: 2s;
+        position: fixed;
+        transform: translateX(-50%) translateY(-50%);
+        background-color: red;
+        border-radius: 50%;
+    }
+</style>
+<body>
+<button onclick="go()">Нажми на меня</button>
+
+<script>
+
+  function go() {
+    showCircle(250, 150, 100, div => {
+      div.classList.add('message-ball');
+      div.append("Привет, мир!");
+    });
+  }
+
+  function showCircle(cx, cy, radius, callback) {
+    let div = document.createElement('div');
+    div.style.width = 0;
+    div.style.height = 0;
+    div.style.left = cx + 'px';
+    div.style.top = cy + 'px';
+    div.className = 'circle';
+    document.body.append(div);
+
+    setTimeout(() => {
+      div.style.width = radius * 2 + 'px';
+      div.style.height = radius * 2 + 'px';
+
+      div.addEventListener('transitionend', function handler() {
+        div.removeEventListener('transitionend', handler);
+        callback(div);
+      });
+    }, 0);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "name": "18",
+  "version": "1.0.0",
+  "description": "",
+  "main": "17.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "google-maps": "^4.3.3",
+    "ymaps": "^0.2.1"
+  }
+}

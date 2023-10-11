@@ -1,0 +1,19 @@
+{
+  "type": "module",
+  "name": "hardcore-js-wb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "12345"
+  ],
+  "author": "alexander shevtsov",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.29.4",
+    "ymaps": "^0.2.1"
+  }
+}
